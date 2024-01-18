@@ -31,11 +31,11 @@ export default function EditPost() {
     if (files?.[0]) {
       data.set('file', files?.[0]);
     }
-    const response = await fetch('http://localhost:4000/post', {
-      method: 'PUT',
-      body: data,
-      credentials: 'include',
-    });
+    const response = await fetch('http://localhost:4000/post/' + id, {
+  method: 'PUT',
+  body: data,
+  credentials: 'include',
+});
     if (response.ok) {
       setRedirect(true);
     }
