@@ -31,8 +31,10 @@ const upload = multer({ storage: storage });
 mongoose.set('strictQuery', false);
 
 // CORS and Middleware setup
-app.use(cors({ credentials: true, origin: 'http://localhost:3000' }));
-app.use(express.json());
+app.use(cors({ 
+  credentials: true, 
+  origin: process.env.FRONTEND_ORIGIN || 'http://localhost:3000' 
+}));app.use(express.json());
 app.use(cookieParser());
 app.use('/uploads', express.static(path.join(__dirname, '/uploads')));
 
